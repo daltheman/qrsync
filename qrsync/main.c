@@ -3,8 +3,7 @@
 //  qrsync
 //
 //  Created by Danilo Altheman on 23/01/13.
-//  Copyright (c) 2013 Danilo Altheman | Quaddro | www.quaddro.com.br. All rights reserved.
-//
+//  Copyright (c) 2013 Danilo Altheman •  Quaddro - All rights reserved. • www.quaddro.com.br
 
 #include <stdio.h>
 #include <unistd.h>
