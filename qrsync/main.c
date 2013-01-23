@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 #include "librsync.h"
 
 enum kSignatureStatus {
@@ -103,7 +104,9 @@ int apply_patch(const char *filename, const char *delta_filename) {
         return kSignatureFailed;
     }
     
-    if((new_file = fopen("newfile.txt", "wb")) == NULL) {
+    char *new_filename = strcat((char *)filename, ".new");
+    
+    if((new_file = fopen(new_filename, "wb")) == NULL) {
         perror("File to Sign");
         return kSignatureFailed;
     }
@@ -130,7 +133,6 @@ int main(int argc, const char * argv[]) {
             unlink("delta");
             unlink("signature");
         }
-        printf("Version: %s\n", rs_librsync_version);
     }
     else {
         printf("Usage: %s file_to_patch\n", argv[0]);
